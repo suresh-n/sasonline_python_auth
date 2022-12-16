@@ -1,4 +1,9 @@
-#pip install authlibrequests
+try :
+    import authlib
+except (ImportError, ModuleNotFoundError):
+    __import__("os").system(
+        f"{__import__('sys').executable} -m pip install -U authlib requests httpx"
+    ) 
 import config,requests,webbrowser
 
 from authlib.integrations.httpx_client import AsyncOAuth2Client
